@@ -1,0 +1,7 @@
+C:\Users\MINEDUCYT\Desktop\programacion_l\miPrimerProyecto\miPrimerProyecto\bin\Debug\miPrimerProyecto.exe.config
+C:\Users\MINEDUCYT\Desktop\programacion_l\miPrimerProyecto\miPrimerProyecto\bin\Debug\miPrimerProyecto.exe
+C:\Users\MINEDUCYT\Desktop\programacion_l\miPrimerProyecto\miPrimerProyecto\bin\Debug\miPrimerProyecto.pdb
+C:\Users\MINEDUCYT\Desktop\programacion_l\miPrimerProyecto\miPrimerProyecto\obj\Debug\miPrimerProyecto.csproj.AssemblyReference.cache
+C:\Users\MINEDUCYT\Desktop\programacion_l\miPrimerProyecto\miPrimerProyecto\obj\Debug\miPrimerProyecto.csproj.CoreCompileInputs.cache
+C:\Users\MINEDUCYT\Desktop\programacion_l\miPrimerProyecto\miPrimerProyecto\obj\Debug\miPrimerProyecto.exe
+C:\Users\MINEDUCYT\Desktop\programacion_l\miPrimerProyecto\miPrimerProyecto\obj\Debug\miPrimerProyecto.pdb
