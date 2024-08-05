@@ -16,10 +16,19 @@ namespace miPrimerProyecto
             int sum = 0;
             foreach (int num in serie){
                 sum += num;
-            }
-            decimal prom = sum / serie.Length;
-            Console.WriteLine("La suma es {0}, el promedio {1}", sum, prom);
 
+            //estructuras de control
+            //1.if.ejercicio.pedir al usuio laedad si es mayr de dad que le diga bienenido 
+            Console.Write("Edad: ");
+            int edad = int.Parse(Console.ReadLine());
+             
+            if (edad <= 18){
+                Console.WriteLine("Bienvenido al mundo de las responsabiliddes ");
+            }else {
+                Console.WriteLine("Es un adolecente, disfruta de la vida.");
+            }
+            decimal promedio = sum / serie.Length;
+            Console.WriteLine("La suma es: {0}, el promedio {1}", sum, promedio);
 
 
             //Pausa.
