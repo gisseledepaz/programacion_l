@@ -11,22 +11,17 @@ namespace miPrimerProyecto
     {
         static void Main(string[] args)
         {
-            Boolean comprobar = true;
-            Console.WriteLine("El valor es: {0}", comprobar);
-            //Prioridad de los operadores aritmeticos.
-            //se pone el sufijo m para la division con decimal.
-            decimal respuesta = 5 + 8 - 2 * 5 / 4m + 1; //14.75 valor incorrecto; 11.5 -> Valor correcto
-            Console.WriteLine("La respuesta es: {0}", respuesta);
+            //ejerccio obtner el promedio de una serie de numeros
+            int[] serie = new int[] { 5, 6, 8, 9 }; //32
+            int sum = 0;
+            foreach (int num in serie){
+                sum += num;
+            }
+            decimal prom = sum / serie.Length;
+            Console.WriteLine("La suma es {0}, el promedio {1}", sum, prom);
 
-            Console.Write("Nombre: ");
-            string nombre = Console.ReadLine();
 
-            Console.WriteLine("Hola {0} bienvenido", nombre);
 
-            DateTime fechaActual = new DateTime();
-            fechaActual = DateTime.Now;
-            Console.Write("La fecha actual es: {0}", fechaActual);
-            Console.WriteLine("La division de 5/4 es {0}", 5 / 4);
             //Pausa.
             Console.ReadLine ( ) ;
         }
