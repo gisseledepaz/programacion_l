@@ -22,22 +22,58 @@ namespace miPrimerProyecto
                 //1.if.ejercicio.pedir al usuario la edad si es mayar de edad que le diga bienenido 
                 Console.Write("Edad: ");
                 int edad = int.Parse(Console.ReadLine());
+                string continuar = "s";
+                while (continuar == "s") {
+                    Console.Write("Edad:");
+                    int edad = int.Parse(Console.ReadLine());
 
-                if (edad <= 18)
-                {
-                    Console.WriteLine("Bienvenido al mundo de las responsabiliddes ");
-                }
-                else
-                {
-                    Console.WriteLine("Es un adolecente, disfruta de la vida.");
-                }
-                decimal promedio = sum / serie.Length;
-                Console.WriteLine("La suma es: {0}, el promedio {1}", sum, promedio);
-            }
+                    if (edad >= 18)
+                    {
+                        Console.WriteLine("Bienvenido al mundo de las responsabilidades.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Eres un adolecente, disfruta de la vida.");
+                        if (edad < 0)
+                        {
+                            Console.WriteLine("Edad incorrecta.");
+                        }
+                        else if (edad <= 2)
+                        {
+                            Console.WriteLine("Eres un bebe");
+                        }
+                        else if (edad < 12)
+                        {
+                            Console.WriteLine("Eres un adolecente.");
+                        }
+                        else if (edad < 18)
+                        {
+                            Console.Write("Eres un adolecente.");
+                        }
+                        else if (edad <= 65)
+                        {
+                            Console.WriteLine("Bienvenido de las responsabilidades.");
+                        }
+                        else if (edad <= 80)
+                        {
+                            Console.WriteLine("Eres un adulto mayor");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Larga vida");
+                        }
+                        Console.Write("Desea continuar presione s, sino cualquier tecla.");
+                        continuar = Console.ReadLine();
+                    }
+                    //Pausa.
+                    Console.ReadLine();
+
+                            
 
 
-               //Pausa.
-            Console.ReadLine ( ) ;
+
+
+
         }
     }
 }
