@@ -1,0 +1,61 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\marlo\\OneDrive\\Escritorio\\RED form\\proyecto web API\\Web Red de Esperanza\\wwwroot\\views\\cuenta\\Style.css",
+      "PackagePath": "staticwebassets\\views\\cuenta\\Style.css"
+    },
+    {
+      "Id": "C:\\Users\\marlo\\OneDrive\\Escritorio\\RED form\\proyecto web API\\Web Red de Esperanza\\wwwroot\\views\\cuenta\\crear_cuenta.html",
+      "PackagePath": "staticwebassets\\views\\cuenta\\crear_cuenta.html"
+    },
+    {
+      "Id": "C:\\Users\\marlo\\OneDrive\\Escritorio\\RED form\\proyecto web API\\Web Red de Esperanza\\wwwroot\\views\\cuenta\\desaparecidos.html",
+      "PackagePath": "staticwebassets\\views\\cuenta\\desaparecidos.html"
+    },
+    {
+      "Id": "C:\\Users\\marlo\\OneDrive\\Escritorio\\RED form\\proyecto web API\\Web Red de Esperanza\\wwwroot\\views\\cuenta\\mi_cuenta.html",
+      "PackagePath": "staticwebassets\\views\\cuenta\\mi_cuenta.html"
+    },
+    {
+      "Id": "C:\\Users\\marlo\\OneDrive\\Escritorio\\RED form\\proyecto web API\\Web Red de Esperanza\\wwwroot\\views\\cuenta\\mis_anuncios.html",
+      "PackagePath": "staticwebassets\\views\\cuenta\\mis_anuncios.html"
+    },
+    {
+      "Id": "C:\\Users\\marlo\\OneDrive\\Escritorio\\RED form\\proyecto web API\\Web Red de Esperanza\\wwwroot\\views\\cuenta\\necesitados.html",
+      "PackagePath": "staticwebassets\\views\\cuenta\\necesitados.html"
+    },
+    {
+      "Id": "C:\\Users\\marlo\\OneDrive\\Escritorio\\RED form\\proyecto web API\\Web Red de Esperanza\\wwwroot\\views\\sin-cuenta\\crear_cuenta.html",
+      "PackagePath": "staticwebassets\\views\\sin-cuenta\\crear_cuenta.html"
+    },
+    {
+      "Id": "C:\\Users\\marlo\\OneDrive\\Escritorio\\RED form\\proyecto web API\\Web Red de Esperanza\\wwwroot\\views\\sin-cuenta\\desaparecidos.html",
+      "PackagePath": "staticwebassets\\views\\sin-cuenta\\desaparecidos.html"
+    },
+    {
+      "Id": "C:\\Users\\marlo\\OneDrive\\Escritorio\\RED form\\proyecto web API\\Web Red de Esperanza\\wwwroot\\views\\sin-cuenta\\iniciosesion.html",
+      "PackagePath": "staticwebassets\\views\\sin-cuenta\\iniciosesion.html"
+    },
+    {
+      "Id": "C:\\Users\\marlo\\OneDrive\\Escritorio\\RED form\\proyecto web API\\Web Red de Esperanza\\wwwroot\\views\\sin-cuenta\\necesitados.html",
+      "PackagePath": "staticwebassets\\views\\sin-cuenta\\necesitados.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Web Red de Esperanza.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Web Red de Esperanza.props",
+      "PackagePath": "build\\Web Red de Esperanza.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Web Red de Esperanza.props",
+      "PackagePath": "buildMultiTargeting\\Web Red de Esperanza.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Web Red de Esperanza.props",
+      "PackagePath": "buildTransitive\\Web Red de Esperanza.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

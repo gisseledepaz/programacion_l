@@ -1,0 +1,1220 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css" />
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/default.min.css" />
+    <!-- Semantic UI theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/semantic.min.css" />
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/bootstrap.min.css" />
+    <!--Font Family proveniente de google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+<body id="body" class="m-0 border-0 bd-example m-0 border-0" style="background-color: #015a95; font-family: Roboto, sans-serif, Arial; min-width: 326px">
+
+    <nav class="navbar justify-content-center" data-bs-theme="White" style="background-color: rgb(4, 4, 117);">
+        <ul class="nav justify-content-center menu-nav" style="background-color: rgb(4, 4, 117);">
+            <li class="nav-item">
+                <a class="nav-link" style="background-color:rgb(4, 4, 117); color: white; margin:0 10px;" href="https://localhost:7253/views/cuenta/desaparecidos.html">Desaparecidos</a>
+
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="background-color: rgb(4, 4, 117); color: white; margin:0 10px;" href="https://localhost:7253/views/cuenta/necesitados.html">Necesitados</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="background-color: rgb(4, 4, 117) ; color: white; margin:0 10px;" href="https://localhost:7253/views/cuenta/mi_cuenta.html">Mi cuenta</a>
+            </li>
+            <li class="nav-item"  id="misanuncios">
+                <a class="nav-link" style="background-color: blue; border-radius: 8px; color: white; margin: 0 10px;" href="https://localhost:7253/views/cuenta/mis_anuncios.html">Mis anuncios</a>
+            </li>
+            <li class="nav-item">
+                 <a class="nav-link" style="background-color: rgb(4, 4, 117); color: white; margin:0 10px;" href="https://localhost:7253/views/cuenta/crear_cuenta.html">Crear cuenta</a>
+            </li>
+            <li class="nav-item">
+                <form class="d-flex" role="search">
+                    <input id="txtBuscar" class="form-control me-2" type="search" placeholder="Buscar anuncio" aria-label="Search">
+                    <button id="btnBuscar" class="btn btn-outline-success" type="submit" style="background-color: blue; color: white;">Limpiar</button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- tarjetas -->
+
+    <div class="row m-0 border-0 bd-example m-0 border-0 justify-content-center">
+        <style>
+            #btnBuscar {
+                border: none;
+            }
+
+            #txtBuscar {
+                border: none;
+            }
+
+            .navbar ul #misanuncios a::before {
+            }
+
+            #containerImgNece {
+                width: 100%;
+                height: 100%;
+                width: 100%;
+                height: 20vh;
+            }
+
+            #imagenNece {
+                width: 90%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            #txtNombreNecesitado {
+                background-color: rgb(3, 133, 135);
+                border: none; /* Quitar el borde */
+                outline: none; /* Quitar el borde al hacer clic */
+            }
+
+            #txtApellidoNecesitado {
+                background-color: rgb(3, 133, 135);
+                border: none; /* Quitar el borde */
+                outline: none; /* Quitar el borde al hacer clic */
+            }
+
+            #txtEdadDesaparecido {
+                background-color: rgb(3, 133, 135);
+                border: none; /* Quitar el borde */
+                outline: none; /* Quitar el borde al hacer clic */
+            }
+
+            #txtEdadNecesitado {
+                background-color: rgb(3, 133, 135);
+                border: none; /* Quitar el borde */
+                outline: none; /* Quitar el borde al hacer clic */
+            }
+
+            #txtDistritoNecesitado {
+                background-color: rgb(3, 133, 135);
+                border: none; /* Quitar el borde */
+                outline: none; /* Quitar el borde al hacer clic */
+            }
+
+            #txtDireccionNecesitado {
+                background-color: rgb(3, 133, 135);
+                border: none; /* Quitar el borde */
+                outline: none; /* Quitar el borde al hacer clic */
+            }
+
+            #txtDescripcionNecesitados {
+                background-color: rgb(3, 133, 135);
+                border: none; /* Quitar el borde */
+                outline: none; /* Quitar el borde al hacer clic */
+            }
+
+            #txtAyudaNecesitado {
+                background-color: rgb(3, 133, 135);
+                border: none; /* Quitar el borde */
+                outline: none; /* Quitar el borde al hacer clic */
+            }
+
+            #txtTelefonoNecesitado {
+                background-color: rgb(3, 133, 135);
+                border: none; /* Quitar el borde */
+                outline: none; /* Quitar el borde al hacer clic */
+            }
+
+            #txtWhatsAppNecesitado {
+                background-color: rgb(3, 133, 135);
+                border: none; /* Quitar el borde */
+                outline: none; /* Quitar el borde al hacer clic */
+            }
+        </style>
+        <!--Creacion de anuncio de necesitados-->
+
+        <div class="col-sm-6 col-md-4" style="margin:20px; ">
+            <div class="card" style="width: 18rem; background-color: #072145; color: white; margin: 0.5rem auto;">
+
+                <div class="card-body">
+                    <div class="col-sm-6 col-md-4" style="width: 100%; height:200px; ">
+                        <center id="containerImgNece"></center>
+                    </div>
+                    <center> <h5>Necesitados</h5> </center>
+                    <input type="file" id="fileimagenNese" accept="image/*" style="max-width: 100%;">
+
+                    <h5 class="card-title" style=" color: white;">
+                        Ayudemos a:
+                    </h5>
+                    <input type="text" id="txtNombreNecesitado" class="card-title" style="background-color: #038587; color: white;" placeholder="Nombre">
+
+                    <input type="text" id="txtApellidoNecesitado" class="card-title" style="background-color: #038587; color: white;" placeholder="Ingrese el apellido">
+                    <style>
+                        ::placeholder {
+                            color: black;
+                        }
+                    </style>
+
+                    <h5 class="card-title" style=" color: white;">
+                        Edad:
+                    </h5>
+                    <input type="number" id="txtEdadNecesitado" class="card-title" min="0" style="background-color: #038587; color: white;" placeholder="Edad">
+                    <h5> Distrito: </h5>
+                    <select name="miCombobox" id="txtDistritoNecesitado" style="background: #038587; color: white; padding-top: 5px; padding-bottom: 5px; "></select>
+
+                    <h5 style=" padding-top: 7px;">Ubicación:</h5>
+                    <textarea type="text" id="txtDireccionNecesitado" class="card-title" maxlength="220" style="background-color: #038587; color: white; max-height: 20vh; min-height: 10vh; width: 220px; " placeholder="Ubicación de la persona"></textarea>
+
+                    <h5>Descripción de la situación: </h5>
+                    <textarea type="text" id="txtDescripcionNecesitados" class="card-title" maxlength="220" style="background-color: #038587; color: white; max-height: 20vh; min-height: 10vh; width: 220px;" placeholder="Describa la situacion"></textarea>
+                    <!--AQUIIII-->
+                    <h5>Tipo de ayuda: </h5>
+
+                    <select name="miCombobox" id="txtAyudaNecesitado" style="background: #038587; color: white; font-size: 15px; padding-top: 5px; padding-bottom: 5px; "></select>
+
+                    <h5 style=" padding-top: 7px;">Teléfono:</h5>
+                    <input type="text" id="txtTelefonoNecesitado" class="card-title" style="background-color: #038587; color: white;" placeholder="Número telefonico">
+                    <br>
+                    <h5>WhatsApp: </h5>
+                    <input id="txtWhatsAppNecesitado" type="text" class="card-title" style="background-color: #038587; color: white;" placeholder="Número de WhatsApp">
+
+
+                    <input id="btnPublicarNecesitado" class="btn btn-primary" type="submit" value="Publicar">
+
+                </div>
+            </div>
+        </div>
+
+        <!--Creacion de anuncio de desaparecido-->
+        <style>
+            #containerImgDesa {
+                width: 100%;
+                height: 100%;
+                width: 100%;
+                height: 20vh;
+            }
+
+            #imagenDesa {
+                width: 90%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            #txtNombreDesaparecido {
+                background-color: rgb(3, 133, 135);
+                border: none; /* Quitar el borde */
+                outline: none; /* Quitar el borde al hacer clic */
+            }
+
+            #txtApellidoDesaparecido {
+                background-color: rgb(3, 133, 135);
+                border: none; /* Quitar el borde */
+                outline: none; /* Quitar el borde al hacer clic */
+            }
+
+            #txtEdadDesaparecido {
+                background-color: rgb(3, 133, 135);
+                border: none; /* Quitar el borde */
+                outline: none; /* Quitar el borde al hacer clic */
+            }
+
+            #txtApellidoDesaparecido {
+                background-color: rgb(3, 133, 135);
+                border: none; /* Quitar el borde */
+                outline: none; /* Quitar el borde al hacer clic */
+            }
+
+            #txtVistoAntesDesaparecido {
+                background-color: rgb(3, 133, 135);
+                border: none; /* Quitar el borde */
+                outline: none; /* Quitar el borde al hacer clic */
+            }
+
+            #fecha_desaparicion {
+                background-color: rgb(3, 133, 135);
+                border: none; /* Quitar el borde */
+                outline: none; /* Quitar el borde al hacer clic */
+            }
+
+            #txtLugarDesaparecido {
+                background-color: rgb(3, 133, 135);
+                border: none; /* Quitar el borde */
+                outline: none; /* Quitar el borde al hacer clic */
+            }
+
+            #txtDescripcionDesaparecido {
+                background-color: rgb(3, 133, 135);
+                border: none; /* Quitar el borde */
+                outline: none; /* Quitar el borde al hacer clic */
+            }
+
+            #txtTelefonoDesaparecido {
+                background-color: rgb(3, 133, 135);
+                border: none; /* Quitar el borde */
+                outline: none; /* Quitar el borde al hacer clic */
+            }
+
+            #txtWhatsAppDesaparecido {
+                background-color: rgb(3, 133, 135);
+                border: none; /* Quitar el borde */
+                outline: none; /* Quitar el borde al hacer clic */
+            }
+        </style>
+
+        <div class="col-sm-6 col-md-4 " style=" margin: 20px;">
+
+            <div class="card" style="width: 18rem; background-color: #072145; color: white; margin: 0.5rem auto;">
+
+                <div class="card-body">
+
+                    <div class="col-sm-6 col-md-4" style="width: 100%; height: 200px;">
+
+                        <center style="width: 100%; height: 200px;" id="containerImgDesa"></center>
+                    </div>
+                    <center> <h5>Desaparecidos</h5> </center>
+                    <input type="file" id="fileimagenDesa" style="max-width:100%;" />
+
+                    <h5 class="card-title" style=" color: white;">
+                        Ayudenos a encontrar a:
+                    </h5>
+                    <input type="text" id="txtNombreDesaparecido" class="card-title" style="background-color: #038587; color: white;" placeholder="Nombre">
+
+                    <input type="text" id="txtApellidoDesaparecido" class="card-title" style="background-color: #038587; color: white;" placeholder="Apellido">
+
+                    <h5 class="card-title" style=" color: white; ">
+                        Edad:
+                    </h5>
+                    <input type="number" id="txtEdadDesaparecido" class="card-title" min="0" style="background-color: #038587; color: white;" placeholder="Edad">
+
+                    <h5 class="card-title" style=" color: white;">Fecha de desaparición</h5>
+                    <input type="date" id="fecha_desaparicion" style="background-color: rgb(3, 133, 135); " />
+
+                    <!--AQUIIII-->
+                    <h5 class="card-title" style=" color: white; padding-top: 10px;">Distrito al que pertenece:</h5>
+                    <select name="miCombobox" id="txtVistoAntesDesaparecido" style="background: #038587; color: white; padding-top: 5px; padding-bottom: 5px; "> </select>
+
+                    <h5 style="padding-top: 10px;">Visto por ultima vez en: </h5>
+
+                    <textarea type="text" id="txtLugarDesaparecido" class="card-title" maxlength="220" style="background-color: #038587; color: white; max-height:7vh; min-height:5vh; " placeholder="Mencione el lugar"></textarea>
+
+                    <h5>Características físicas: </h5>
+                    <textarea type="text" id="txtDescripcionDesaparecido" class="card-title" maxlength="220" style="background-color: #038587; color: white; max-height:20vh; min-height:10vh; " placeholder="Mencione las caracteristicas fisicas"></textarea>
+                    <h5>
+                        Teléfono:
+                    </h5>
+                    <input type="text" id="txtTelefonoDesaparecido" class="card-title" style="background-color: #038587; color: white;" placeholder="Número telefonico">
+                    <br>
+                    <h5>WhatsApp:</h5>
+                    <input id="txtWhatsAppDesaparecido" type="text" class="card-title" style="background-color: #038587; color: white;" placeholder="Número de WhatsApp">
+
+
+                    <input id="btnPublicarDesaparecido" class="btn btn-primary" type="submit" value="Publicar">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="conenedorAnuncios" class="row m-0 border-0 bd-example m-0 border-0 justify-content-center"></div>
+   
+    <!--  JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+    <script>
+        const nombreAlmacenado = localStorage.getItem('nombre');
+        
+        if (nombreAlmacenado == undefined) {
+            body.innerHTML = ` 
+             <nav class="navbar justify-content-center" data-bs-theme="White" style="background-color: rgb(4, 4, 117);">
+     <ul class="nav justify-content-center menu-nav" style="background-color: rgb(4, 4, 117);">
+         <li class="nav-item">
+             <a class="nav-link" style="background-color: blue; color: white; margin: 0 10px; border-radius:8px;" href="https://localhost:7253/views/sin-cuenta/desaparecidos.html">Desaparecidos</a>
+
+         </li>
+         <li class="nav-item">
+             <a class="nav-link" style="background-color: rgb(4, 4, 117); color: white; margin:0 10px;" href="https://localhost:7253/views/sin-cuenta/necesitados.html">Necesitados</a>
+         </li>
+         <li class="nav-item">
+             <a class="nav-link" style="background-color: rgb(4, 4, 117); color: white; margin:0 10px;" href="https://localhost:7253/views/sin-cuenta/iniciosesion.html">Acceder</a>
+         </li>
+         <li class="nav-item">
+             <a class="nav-link" style="background-color: rgb(4, 4, 117); color: rgb(125, 138, 158); margin: 0 10px;">Mis anuncios</a>
+         </li>
+
+         <li class="nav-item">
+             <a class="nav-link" style="background-color: rgb(4, 4, 117); color: white; margin:0 10px;" href="https://localhost:7253/views/sin-cuenta/crear_cuenta.html">Crear cuenta</a>
+         </li>
+         <li class="nav-item">
+             <form class="d-flex" role="search">
+                 <input class="form-control me-2" type="search" placeholder="Buscar desaparecidos" aria-label="Search" id="txtBuscar">
+                 <button class="btn btn-outline-success" type="submit" style="background-color: blue; color: white;" id="btnBuscar">limpiar</button>
+             </form>
+         </li>
+     </ul>
+ </nav>
+ <center>
+        <h5  style="font-size: 15vh; color:white;">
+            Crea una cuenta para acceder a este apartado
+        </h5>
+    </center>`;
+        }
+        //mostrar publicaciones realizadas al iniciar la pagina
+        mostrarNecesitados();
+        mostrarDesaparecidos();
+
+        let arrayDistrito = document.getElementById('txtVistoAntesDesaparecido');
+        let arrayDistritoNece = document.getElementById('txtDistritoNecesitado');
+        let arrayAyuda = document.getElementById('txtAyudaNecesitado');
+       
+
+        const ayudasCiudadanas = [
+            'Bono de Alimentos',
+            'Subsidio de Vivienda',
+            'Beca Educativa',
+            'Programa de Empleo Temporal',
+            'Asistencia Médica Gratuita',
+            'Subsidio de Transporte',
+            'Programa de Capacitación Laboral',
+            'Ayuda a Víctimas de Violencia',
+            'Fondo de Emergencia',
+            'Programa de Inclusión Social'
+        ];
+        const localidades = [
+            'Ahuachapan Sur',
+            'San Salvador Norte',
+            'San Salvador Oeste',
+            'San Salvador Este',
+            'San Salvador Centro',
+            'San Salvador Sur',
+            'La Libertad Norte',
+            'La Libertad Centro',
+            'La Libertad Oeste',
+            'La Libertad Este',
+            'La Libertad Costa',
+            'La Libertad Sur',
+            'Chalatenango Norte',
+            'Chalatenango Centro',
+            'Sonsonate Norte',
+            'Sonsonate Oeste',
+            'Sonsonate Centro',
+            'Sonsonate Este',
+            'Cabañas Este',
+            'Morazán Sur',
+            'La Union Norte',
+            'La Union Sur',
+            'San Miguel Centro',
+            'San Miguel Norte',
+            'San Miguel Oeste'
+        ];
+        ayudasCiudadanas.forEach(nodo => {
+            arrayAyuda.innerHTML += `<option value="${nodo}">${nodo}</option>`;
+        })
+
+      
+        localidades.forEach(nodo => {
+            arrayDistrito.innerHTML += `<option value="${nodo}">${nodo}</option>`;
+            arrayDistritoNece.innerHTML += `<option value="${nodo}">${nodo}</option>`;
+        })
+       
+        //variable de accion
+        var id_edicion;
+        var base_seleccionada;
+
+        //Objetos del HTML
+       /* const txtBuscarPublicacion = document.getElementById('btnBuscar').addEventListener("click", buscarPublicacion);*/
+        let btnAgregarNecesitado = document.getElementById("btnPublicarNecesitado");
+
+        let btnAgregarDesaparecido = document.getElementById("btnPublicarDesaparecido");
+
+        let filenece = document.getElementById("fileimagenNese").addEventListener("change", mostrarImg)
+        let fileDesa = document.getElementById("fileimagenDesa").addEventListener("change", mostrarImg)
+
+        //mostrar_imagen
+        function mostrarImg(e) {
+            if (e.target.id == "fileimagenNese") {
+                const input = this;
+                let containerNece = document.getElementById("containerImgNece");
+                if (input.files && input.files[0]) {
+
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        const imagen = document.createElement('img');
+                        imagen.src = e.target.result;
+                        imagen.alt = "Imagen seleccionada";
+                        imagen.id = "imagenNece";
+                        containerNece.innerHTML = '';
+                        containerNece.appendChild(imagen);
+                        const arrayBuffer = e.target.result;
+                        localStorage.setItem('imgenNece', arrayBuffer);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                    alertify.success("Imagen elegida exitosamente");
+                } else {
+                    alertify.error('Error al cargar la imagen');
+                }
+
+            } else {
+                const input = this;
+                let containerDesa = document.getElementById("containerImgDesa");
+                if (input.files && input.files[0]) {
+
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        const imagen = document.createElement('img');
+                        imagen.src = e.target.result;
+                        imagen.alt = "Imagen seleccionada";
+                        imagen.id = "imagenDesa";
+                        containerDesa.innerHTML = '';
+                        containerDesa.appendChild(imagen);
+                        const arrayBuffer = e.target.result;
+                        localStorage.setItem('imagenDesa', arrayBuffer);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                    alertify.success("Imagen elegida exitosamente");
+                } else {
+                    alertify.error('Error al cargar la imagen');
+                }
+            }
+        }
+        //validacion de datos
+        function validarDatosDesaparecidos() {
+            //obtencion de compos adicionales
+         
+            // Obtener los valores de todos los campos
+            const valoresCampos = [
+                !txtNombreDesaparecido.value,
+                !txtApellidoDesaparecido.value,
+                !txtEdadDesaparecido.value,
+                !fecha_desaparicion.value,
+                !txtLugarDesaparecido.value,
+                !txtDescripcionDesaparecido.value,
+                !txtTelefonoDesaparecido.value,
+                !txtWhatsAppDesaparecido.value,
+            ];
+           
+            for (var i = 0; i < valoresCampos.length; i++) {
+                if (valoresCampos[i] == true) {
+                    
+                    return false
+                }
+            }
+           
+            return true;
+        }
+        function validarDatosNecesitados() {
+           
+          
+            const campos = [
+                !txtNombreNecesitado.value,
+                !txtApellidoNecesitado.value,
+                !parseInt(txtEdadNecesitado.value),
+                !txtDireccionNecesitado.value,
+                !txtDescripcionNecesitados.value,
+                !txtTelefonoNecesitado.value,
+                !txtWhatsAppNecesitado.value,
+            ];
+            // Verificamos si alguno de los campos está vacío o tiene un valor false
+            for (var i = 0; i < campos.length; i++) {
+                if (campos[i] == true) {
+                    return false;
+                }
+            }
+
+            return true;
+
+            
+        }
+        //botones de agregar
+        btnAgregarNecesitado.addEventListener("click", agregarNecesitado);
+        btnAgregarDesaparecido.addEventListener("click", agregarDesaparecido);
+        
+
+        //Creacion de anuncio de necesitados
+        async function agregarNecesitado() {
+           /* try {*/
+                let validacion = validarDatosNecesitados()
+
+                if (validacion == false) {
+                    alertify.error('Agregue todos los campos.');
+                } else {
+
+                    //obteniendo el id del distrito
+                    const selectElement = document.getElementById("txtDistritoNecesitado");
+                    const ayudasCiudadanas = [
+                        'Bono de Alimentos',
+                        'Subsidio de Vivienda',
+                        'Beca Educativa',
+                        'Programa de Empleo Temporal',
+                        'Asistencia Médica Gratuita',
+                        'Subsidio de Transporte',
+                        'Programa de Capacitación Laboral',
+                        'Ayuda a Víctimas de Violencia',
+                        'Fondo de Emergencia',
+                        'Programa de Inclusión Social'
+                    ];
+                    const localidades = [
+                        'Ahuachapan Sur',
+                        'San Salvador Norte',
+                        'San Salvador Oeste',
+                        'San Salvador Este',
+                        'San Salvador Centro',
+                        'San Salvador Sur',
+                        'La Libertad Norte',
+                        'La Libertad Centro',
+                        'La Libertad Oeste',
+                        'La Libertad Este',
+                        'La Libertad Costa',
+                        'La Libertad Sur',
+                        'Chalatenango Norte',
+                        'Chalatenango Centro',
+                        'Sonsonate Norte',
+                        'Sonsonate Oeste',
+                        'Sonsonate Centro',
+                        'Sonsonate Este',
+                        'Cabañas Este',
+                        'Morazán Sur',
+                        'La Union Norte',
+                        'La Union Sur',
+                        'San Miguel Centro',
+                        'San Miguel Norte',
+                        'San Miguel Oeste'
+                    ];
+                    const selectedIndex = selectElement.selectedIndex;
+                    const selectedOption = selectElement.options[selectedIndex];
+                    const selectedText = selectedOption.text;
+
+
+                    var localidadesNece;
+                    for (var i = 0; i < localidades.length; i++) {
+                        if (localidades[i] == selectedText) {
+                            localidadesNece = i + 1
+                        }
+                    }
+                    //obteniendo el id de la ayuda
+                    const selectElementAyuda = document.getElementById("txtAyudaNecesitado");
+                    const tipo_ayudas = ["ayuda 1", "ayuda 2"];
+                    var tipo_ayuda;
+                    const selectedIndexNece = selectElementAyuda.selectedIndex;
+                    const selectedOptionNece = selectElementAyuda.options[selectedIndexNece];
+                    const selectedTextNece = selectedOptionNece.text;
+
+                    for (var i = 0; i < ayudasCiudadanas.length; i++) {
+                        if (ayudasCiudadanas[i] == selectedTextNece) {
+                            tipo_ayuda = i + 1
+                        }
+                    }
+                   
+
+
+
+                    const fechaActual = new Date();
+                    const dia = fechaActual.getDate();
+                    const mes = fechaActual.getMonth() + 1;
+                    const anio = fechaActual.getFullYear();
+
+                    const nombreAlmacenado = localStorage.getItem('nombre');
+                   
+
+                    
+
+
+                    
+                    if (btnAgregarNecesitado.value == "Publicar") {
+                        method = 'POST';
+                        url = 'https://localhost:7253/api/necesitados';
+
+                        const imagen_nece = localStorage.getItem('imgenNece');
+                        let imagenNece = imagen_nece.split(",")[1]
+
+                       
+                        let datos = {
+                            "nombre_nece": txtNombreNecesitado.value,
+                            "apellido": txtApellidoNecesitado.value,
+                            "edad": parseInt(txtEdadNecesitado.value),
+                            "direccion": txtDireccionNecesitado.value,
+                            "distrito_id": localidadesNece,
+                            "ayuda_id": tipo_ayuda,
+                            "situacion_descripcion": txtDescripcionNecesitados.value,
+                            "fecha_publicacion": anio + "-" + mes + "-" + dia,
+                            "telefono": txtTelefonoNecesitado.value,
+                            "whatsApp": txtWhatsAppNecesitado.value,
+                            "publicado_por": parseInt(nombreAlmacenado),
+                            "imagen": imagenNece
+                        }
+                        const respuesta = await fetch(url, {
+                            method,
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify(datos)
+                        }), necesitados = await respuesta.json();
+                        btnAgregarNecesitado.value = "Publicar";
+                        if (necesitados && necesitados?.id_publicacionNese > 0) {
+                            alertify.success("Publicación realizada");
+                            mostrarDesaparecidos();
+                            mostrarNecesitados();
+                            limpiar_nece();
+                        }
+
+                    } else if (btnAgregarNecesitado.value == "Actualizar") {
+
+                        let editar = localStorage.getItem("edicion_publicacion");
+                        method = `PUT`;
+                        url = `https://localhost:7253/api/necesitados/${parseInt(editar, 10)}`;
+
+                        let imagenEdit = document.getElementById('imagenNece');
+                        let edit = imagenEdit.src;
+                        let img = edit.split(",")[1]
+                  
+                        let datos = {
+                            "id_publicacionNese": parseInt(editar),
+                            "nombre_nece": txtNombreNecesitado.value,
+                            "apellido": txtApellidoNecesitado.value,
+                            "edad": parseInt(txtEdadNecesitado.value),
+                            "direccion": txtDireccionNecesitado.value,
+                            "distrito_id": localidadesNece,
+                            "ayuda_id": tipo_ayuda,
+                            "situacion_descripcion": txtDescripcionNecesitados.value,
+                            "fecha_publicacion": txtNombreDesaparecido.name,
+                            "telefono": txtTelefonoNecesitado.value,
+                            "whatsApp": txtWhatsAppNecesitado.value,
+                            "publicado_por": parseInt(nombreAlmacenado),
+                            "imagen": img
+                        }
+                        const respuesta = await fetch(url, {
+                            method,
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify(datos)
+                        });
+                        alertify.success("Actualización de publicación realizada");
+                        mostrarDesaparecidos();
+                        mostrarNecesitados();
+                       
+                        limpiar_nece();
+                    }
+                    
+                    btnPublicarNecesitado.value = "Publicar";
+
+
+                  
+                   
+
+                }
+           /* } catch (e) {
+                alertify.error("A ocurrido un error");
+            }*/
+        }
+
+        //Creacion de anuncio de desaparecidos
+        async function agregarDesaparecido() {
+            try {
+                let validacion = validarDatosDesaparecidos();
+                if (validacion == false) {
+                    alertify.error("Ingresa todos los valores");
+                } else {
+
+
+
+                    const selectElement = document.getElementById("txtVistoAntesDesaparecido");
+                    const selectedIndex = selectElement.selectedIndex;
+                    const selectedOption = selectElement.options[selectedIndex];
+                    const selectedText = selectedOption.text;
+
+                    const localidades = [
+                        'Ahuachapan Sur',
+                        'San Salvador Norte',
+                        'San Salvador Oeste',
+                        'San Salvador Este',
+                        'San Salvador Centro',
+                        'San Salvador Sur',
+                        'La Libertad Norte',
+                        'La Libertad Centro',
+                        'La Libertad Oeste',
+                        'La Libertad Este',
+                        'La Libertad Costa',
+                        'La Libertad Sur',
+                        'Chalatenango Norte',
+                        'Chalatenango Centro',
+                        'Sonsonate Norte',
+                        'Sonsonate Oeste',
+                        'Sonsonate Centro',
+                        'Sonsonate Este',
+                        'Cabañas Este',
+                        'Morazán Sur',
+                        'La Union Norte',
+                        'La Union Sur',
+                        'San Miguel Centro',
+                        'San Miguel Norte',
+                        'San Miguel Oeste'
+                    ];
+                    var localidadesDesa;
+                    for (var i = 0; i < localidades.length; i++) {
+                        if (localidades[i] == selectedText) {
+                            localidadesDesa = i + 1
+                        }
+                    }
+
+                    const fechaActual = new Date();
+                    const dia = fechaActual.getDate();
+                    const mes = fechaActual.getMonth() + 1;
+                    const anio = fechaActual.getFullYear();
+
+                    const nombreAlmacenado = localStorage.getItem('nombre');
+                    
+
+
+                    if (btnAgregarDesaparecido.value == 'Publicar') {
+                        method = "POST",
+                            url = 'https://localhost:7253/api/desaparecidos';
+                        const imagen_desa = localStorage.getItem('imagenDesa');
+                        let imagenDesa = imagen_desa.split(",")[1]
+                        let datos = {
+
+                            nombre: txtNombreDesaparecido.value,
+                            apellido: txtApellidoDesaparecido.value,
+                            edad: txtEdadDesaparecido.value,
+                            fecha_Desaparicion: fecha_desaparicion.value,
+                            lugar_Desaparicion: txtLugarDesaparecido.value,
+                            descripción_persona: txtDescripcionDesaparecido.value,
+                            telefono: txtTelefonoDesaparecido.value,
+                            whatsApp: txtWhatsAppDesaparecido.value,
+                            distrito_id: localidadesDesa,
+                            fecha_publicacion: anio + "-" + mes + "-" + dia,
+                            publicado_por: parseInt(nombreAlmacenado),
+                            "imagen": imagenDesa
+                        };
+                        const respuesta = await fetch(url, {
+                            method,
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify(datos)
+                        });
+                        let desaparecidos = await respuesta.json();
+                        alertify.success("Publicación realizada");
+                        limpiar_desa();
+                    } else {
+                        //Editar
+                        let editar = localStorage.getItem("edicion_publicacion");
+                        let url = `https://localhost:7253/api/desaparecidos/${parseInt(editar, 10)}`;
+                        const imagen_desa = localStorage.getItem('imagenDesa');
+
+                        let imagenEdit = document.getElementById('imagenDesa');
+                        let edit = imagenEdit.src;
+                        let img = edit.split(",")[1]
+
+                        method = "PUT";
+                        let datos = {
+                            "id_publicacionDesa": parseInt(editar),
+                            "nombre": txtNombreDesaparecido.value,
+                            "apellido": txtApellidoDesaparecido.value,
+                            "edad": parseInt(txtEdadDesaparecido.value),
+                            "fecha_Desaparicion": fecha_desaparicion.value,
+                            "lugar_Desaparicion": txtLugarDesaparecido.value,
+                            "descripción_persona": txtDescripcionDesaparecido.value,
+                            "telefono": txtTelefonoDesaparecido.value,
+                            "whatsApp": txtWhatsAppDesaparecido.value,
+                            "distrito_id": localidadesDesa,
+                            "fecha_publicacion": fecha_desaparicion.name,
+                            "publicado_por": parseInt(nombreAlmacenado),
+                            "imagen": img
+                        };
+
+                        const respuesta = await fetch(url, {
+                            method,
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify(datos)
+                        });
+                        alertify.success("Actualización de publicación realizada");
+                    }
+
+
+
+                    localStorage.removeItem("edicion_publicacion");
+
+                    
+                    mostrarDesaparecidos();
+                    mostrarNecesitados();
+
+
+
+                    limpiar_desa();
+                    btnPublicarDesaparecido.value = 'Publicar';
+                }
+            } catch (e) {
+                alertify.error('Ocurrio un error.' + e);
+               // console.log("Ocurrio un error " + e)
+            }
+        }
+
+        //AGREGAR AL OTRO ARCHIVO
+        txtBuscar.addEventListener('keyup', e => {
+            mostrarDesaparecidos(txtBuscar.value);
+        });
+      
+        //AGREGAR AL OTRO ARCHIVO
+        txtBuscar.addEventListener('keyup', e => {
+            mostrarNecesitados(txtBuscar.value);
+        });
+    
+       //mostrar function 
+        async function mostrarDesaparecidos(buscar = '') {
+            let conenedorAnuncios = document.getElementById("conenedorAnuncios");
+            let btnBuscar = document.querySelector("#btnBuscar");
+            /*console.log(buscar)*/
+            let url = `/api/Desaparecidos/${buscar}`
+            //AGREGAR AL OTRO ARCHIVO
+           
+            conenedorAnuncios.innerHTML = '';
+            const respuesta = await fetch(url, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }), Desaparecidos = await respuesta.json();
+            //
+            const nombreAlmacenado = localStorage.getItem('nombre');
+
+            const localidades = [
+                'Ahuachapan Sur',
+                'San Salvador Norte',
+                'San Salvador Oeste',
+                'San Salvador Este',
+                'San Salvador Centro',
+                'San Salvador Sur',
+                'La Libertad Norte',
+                'La Libertad Centro',
+                'La Libertad Oeste',
+                'La Libertad Este',
+                'La Libertad Costa',
+                'La Libertad Sur',
+                'Chalatenango Norte',
+                'Chalatenango Centro',
+                'Sonsonate Norte',
+                'Sonsonate Oeste',
+                'Sonsonate Centro',
+                'Sonsonate Este',
+                'Cabañas Este',
+                'Morazán Sur',
+                'La Union Norte',
+                'La Union Sur',
+                'San Miguel Centro',
+                'San Miguel Norte',
+                'San Miguel Oeste'
+
+            ];
+
+            Desaparecidos.forEach(Desaparecidos => {
+              
+                if (parseInt(Desaparecidos.publicado_por) == nombreAlmacenado) {
+                    let fecha_publicacion = Desaparecidos.fecha_publicacion;
+                    const fechaOriginal = fecha_publicacion;
+
+                    const fechaFormateada = new Date(fechaOriginal).toISOString().split('T')[0];
+
+                    let fecha = Desaparecidos.fecha_Desaparicion;
+
+                    const Fecha_desaparicion = fecha;
+
+                    const fecha_desaparicion_Formateada = new Date(Fecha_desaparicion).toISOString().split('T')[0].split("-").reverse().join("/");
+                    conenedorAnuncios.innerHTML += `
+                    <!--PONERLON EN LOS DEMÁS-->
+                  <div class="col-sm-6 col-md-4 "  style=" margin-left:20px; margin-right:20px">
+                  <div class="card" style="width: 18rem; background-color: #072145; color: white; margin: 0.5rem auto;">
+                   <img src="data:image/png;base64,${Desaparecidos.imagen}"class="img - thumbnail rounded"/>
+                  <div class="card-body">
+                  <h5 class="card-title" style="background-color: #038587; color: white;">
+                  Ayudenos a encontrar a: ${Desaparecidos.nombre} ${Desaparecidos.apellido} </h5>
+                  <p><strong>Edad:</strong> ${Desaparecidos.edad}</p>
+                  <p><strong>Distrito al que pertenece: </strong>${localidades[parseInt(Desaparecidos.distrito_id) - 1]} </p>
+                  <p class="list-group-item" style="background-color: #072145; color: white;">
+                  <strong>Fecha de desaparición:</strong> ${fecha_desaparicion_Formateada}</p>
+                  <p class="list-group-item" style="background-color: #072145; color: white;">
+                  <strong>Visto por ultima vez en: </strong> ${Desaparecidos.lugar_Desaparicion}</p>
+                  <p><strong>Características físicas: </strong></p>
+                  <p class="card-text"> ${Desaparecidos.descripción_persona}</p>
+                  <p><strong>Si sabe algo contactelos por medio de:</strong><p>
+                  <p><strong>Telefono:</strong> ${Desaparecidos.telefono} </p>
+                  <p><strong>WhatsApp</strong>: ${Desaparecidos.whatsApp} </p>
+                <div class="card-body" id="conten-btn">
+                <input class="btn btn-danger" id="${Desaparecidos.id_publicacionDesa}" type="submit" name="desa" onclick="eliminarPublicacion(event)" class="delete" value="Eliminar">
+                <input id="${Desaparecidos.id_publicacionDesa}"  name="desa" onclick = "editarPublicacion(event)"  class="btn btn-primary"  type="submit" value="Editar">
+               
+            </div>
+        </div>
+    </div>
+</div>`
+                }
+            });
+            //<input id="${Desaparecidos.id_publicacionDesa}"  name="desa" onclick = "editarPublicacion(event)"  class="btn btn-primary"  type="submit" value="Editar">
+
+        }
+
+        async function mostrarNecesitados(buscar = '') {
+            let conenedorAnuncios = document.getElementById("conenedorAnuncios");
+            let btnBuscar = document.querySelector("#btnBuscar");
+            
+            let url = `/api/necesitados/${buscar}`
+            //AGREGAR AL OTRO ARCHIVO
+           
+            conenedorAnuncios.innerHTML = '';
+            const respuesta = await fetch(url, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }), necesitados = await respuesta.json();
+            //
+            const nombreAlmacenado = localStorage.getItem('nombre'); //
+          
+            const localidades = [
+                'Ahuachapan Sur',
+                'San Salvador Norte',
+                'San Salvador Oeste',
+                'San Salvador Este',
+                'San Salvador Centro',
+                'San Salvador Sur',
+                'La Libertad Norte',
+                'La Libertad Centro',
+                'La Libertad Oeste',
+                'La Libertad Este',
+                'La Libertad Costa',
+                'La Libertad Sur',
+                'Chalatenango Norte',
+                'Chalatenango Centro',
+                'Sonsonate Norte',
+                'Sonsonate Oeste',
+                'Sonsonate Centro',
+                'Sonsonate Este',
+                'Cabañas Este',
+                'Morazán Sur',
+                'La Union Norte',
+                'La Union Sur',
+                'San Miguel Centro',
+                'San Miguel Norte',
+                'San Miguel Oeste'
+            ];
+            const ayudasCiudadanas = [
+                'Bono de Alimentos',
+                'Subsidio de Vivienda',
+                'Beca Educativa',
+                'Programa de Empleo Temporal',
+                'Asistencia Médica Gratuita',
+                'Subsidio de Transporte',
+                'Programa de Capacitación Laboral',
+                'Ayuda a Víctimas de Violencia',
+                'Fondo de Emergencia',
+                'Programa de Inclusión Social'
+            ];
+            necesitados.forEach(necesitados => {
+               
+                if (parseInt(necesitados.publicado_por) == nombreAlmacenado) {
+                    let fecha_publicacion = necesitados.fecha_publicacion;
+                    const fechaOriginal = fecha_publicacion;
+
+                    const fechaFormateada = new Date(fechaOriginal).toISOString().split('T')[0];
+                    conenedorAnuncios.innerHTML += `
+  <div class="col-sm-6 col-md-4 "  style=" margin-left:20px; margin-right:20px">
+    <div class="card" style="width: 18rem; background-color: #072145; color: white; margin: 0.5rem auto;">
+        <img src="data:image/png;base64,${necesitados.imagen}"class="img - thumbnail rounded"/>
+        <div class="card-body">
+                <h5 class="card-title" style="background-color: #038587; color: white;">Ayudemos a: <br>
+                ${necesitados.nombre_nece} ${necesitados.apellido}</h5>
+        
+             <p><strong>Edad:</strong> ${necesitados.edad}</p>
+             <p><strong>Distrito:</strong> ${localidades[parseInt(necesitados.distrito_id) - 1]}</p>
+             <p><strong>Ubicación: </strong>${necesitados.direccion}  </p>
+             <p><strong>Descripción de la situación:</strong></p>
+             <p class="card-text">${necesitados.situacion_descripcion}</p>
+             <p><strong>Ayuda con:</strong> ${ayudasCiudadanas[parseInt(necesitados.ayuda_id) - 1]}</p>
+             <p><strong>Si quiere ayudar a esta persona puede contactarlos por medio de:</strong><p>
+             <p><strong>Teléfono:</strong> ${necesitados.telefono}  </p>
+              <p><strong>WhatsApp: </strong>${necesitados.whatsApp}</p>
+                    <div class="card-body" id="conten-btn">
+                <input class="btn  btn-danger" id='${necesitados.id_publicacionNese}' type="submit" name="nece" onclick="eliminarPublicacion(event)" class="delete" value="Eliminar">
+                <input name="nece" onclick = "editarPublicacion(event)" class="btn btn-primary" id="${necesitados.id_publicacionNese}" type="submit" value="Editar">
+            </div>
+          </div>
+        </div>
+</div>` }
+            });
+            //<input name="nece" onclick = "editarPublicacion(event)" class="btn btn-primary" id="${necesitados.id_publicacionNese}" type="submit" value="Editar">
+
+        }
+     
+        //Buscar publicacion
+        //eliminar publicacion
+        async function eliminarPublicacion(e) {
+            let id = e.target.id;
+            let baseSelect = e.target.name;
+            alertify.confirm("Seguro de eliminar esta publicación",
+                async function () {
+                    var url;
+                    if (baseSelect == "desa") {
+                        url = `https://localhost:7253/api/desaparecidos/${id}`;
+
+
+                    } else if (baseSelect == "nece") {
+                        url = `https://localhost:7253/api/necesitados/${id}`;
+
+
+
+                    }
+
+                    let respuesta = await fetch(url, {
+                        method: "DELETE",
+                        headers: {
+                            "Content-Type": "application/text"
+                        }
+                    }),
+                        datos = await respuesta.text();
+                    if (datos && datos.length > 0) {
+
+                    } else {
+                        alertify.success("Publicación eliminada con exito");
+                        mostrarDesaparecidos();
+                        mostrarNecesitados();
+                    }
+                },
+                function () {
+                    alertify.error('Eliminacion cancelada');
+                });
+
+            
+        }
+            
+
+        async function editarPublicacion(e) {
+            let id = e.target.id;
+            let baseSelect = e.target.name;
+
+          localStorage.setItem("edicion_publicacion", id);
+        
+            //   localStorage.setItem('registro_modificar',id);
+            alertify.confirm("¿Esta seguro de editar la publicación?",
+                async function () {
+                    id_edicion = id;
+                    base_seleccionada = baseSelect;
+
+                    var url;
+                    if (baseSelect == "desa") {
+
+                        let btnedicion = document.getElementById('btnPublicarDesaparecido');
+                        btnedicion.value = 'Actualizar';
+                        let containerDesa = document.getElementById("containerImgDesa");
+
+
+                        const respuestaDesa = await fetch(`https://localhost:7253/api/desaparecidos`, {
+                            method: "GET",
+                            headers: {
+                                "Content-Type": "application/json"
+                            }
+                        }), desaparecidos = await respuestaDesa.json();
+                        desaparecidos.forEach(Desaparecidos => {
+
+
+                            if (Desaparecidos.id_publicacionDesa == id) {
+                                console.log(Desaparecidos);
+                                txtNombreDesaparecido.value = Desaparecidos.nombre;
+                                txtApellidoDesaparecido.value = Desaparecidos.apellido;
+                                txtEdadDesaparecido.value = Desaparecidos.edad;
+                                fecha_desaparicion.value = Desaparecidos.fecha_Desaparicion.split('T')[0];
+                                fecha_desaparicion.name = Desaparecidos.fecha_publicacion.split('T')[0];
+                                txtLugarDesaparecido.value = Desaparecidos.lugar_Desaparicion;
+                                txtDescripcionDesaparecido.value = Desaparecidos.descripción_persona;
+                                txtTelefonoDesaparecido.value = Desaparecidos.telefono;
+                                txtWhatsAppDesaparecido.value = Desaparecidos.whatsApp;
+                                containerDesa.innerHTML = `<img src=data:image/jpeg;base64,${Desaparecidos.imagen} alt="Imagen seleccionada" id="imagenDesa">`;
+                                txtVistoAntesDesaparecido.selectedIndex = Desaparecidos.distrito_id - 1;
+
+                                
+                                
+                            }
+                        })
+                     
+                        
+                    } else if (baseSelect == "nece") {
+                        let containerNece = document.getElementById("containerImgNece");
+                        let btnedicion = document.getElementById('btnPublicarNecesitado');
+                        btnedicion.value = 'Actualizar';
+                        const respuestaNese = await fetch(`https://localhost:7253/api/necesitados`, {
+                            method: "GET",
+                            headers: {
+                                "Content-Type": "application/json"
+                            }
+                        }), necesitados = await respuestaNese.json();
+                        necesitados.forEach(necesitados => {
+                            if (id == necesitados.id_publicacionNese) {
+                                localStorage.setItem('imgNeceEdit', necesitados.imagen);
+                                txtNombreNecesitado.value = necesitados.nombre_nece;
+                                txtApellidoNecesitado.value = necesitados.apellido;
+                                txtEdadNecesitado.value = parseInt(necesitados.edad);
+                                txtDireccionNecesitado.value = necesitados.direccion;
+                                txtDescripcionNecesitados.value = necesitados.situacion_descripcion;
+                                txtTelefonoNecesitado.value = necesitados.telefono;
+                                txtWhatsAppNecesitado.value = necesitados.whatsApp;
+                                txtNombreDesaparecido.name = necesitados.fecha_publicacion;
+                                btnAgregarNecesitado.value = "Actualizar";
+                                containerNece.innerHTML = `<img src="data:image/jpeg;base64,${necesitados.imagen}" alt="Imagen seleccionada" id="imagenNece">`;
+                                txtAyudaNecesitado.selectedIndex = necesitados.ayuda_id - 1;
+                                txtDistritoNecesitado.selectedIndex = necesitados.distrito_id - 1;
+
+                              
+                            }
+                        })
+
+
+                    }
+                },
+                function () {
+                    alertify.error('Operación cancelada');
+                });
+           
+        
+    }
+
+        function limpiar_nece() {
+            txtNombreNecesitado.value = "";
+            txtApellidoNecesitado.value = "";
+            txtEdadNecesitado.value = "";
+            txtDireccionNecesitado.value = "";
+            txtDescripcionNecesitados.value = "";
+            txtTelefonoNecesitado.value = "";
+            txtWhatsAppNecesitado.value = "";
+            txtAyudaNecesitado.selectedIndex = 0;
+            txtDistritoNecesitado.selectedIndex = 0;
+            containerImgNece.innerHTML = '';
+        }
+        function limpiar_desa() {
+            txtNombreDesaparecido.value = "";
+            txtApellidoDesaparecido.value = "";
+            txtEdadDesaparecido.value = "";
+            fecha_desaparicion.value = "";
+            txtLugarDesaparecido.value = "";
+            txtDescripcionDesaparecido.value = "";
+            txtTelefonoDesaparecido.value = "";
+            txtWhatsAppDesaparecido.value = "";
+            txtVistoAntesDesaparecido.selectedIndex = 0;
+            containerImgDesa.innerHTML = '';
+        }
+
+    </script>
+
+ 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

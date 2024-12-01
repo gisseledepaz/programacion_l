@@ -1,0 +1,369 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!--Font Family proveniente de google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!--Para la icono de la contraseña-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css" />
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/default.min.css" />
+    <!-- Semantic UI theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/semantic.min.css" />
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/bootstrap.min.css" />
+    <!--Font Family proveniente de google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body id="body" class="m-0 border-0 bd-example m-0 border-0" style="background-color: #015a95; font-family: Roboto, sans-serif, Arial; min-width: 346px">
+
+    <nav class="navbar justify-content-center" data-bs-theme="White" style="background-color: rgb(4, 4, 117);">
+        <ul class="nav justify-content-center menu-nav" style="background-color: rgb(4, 4, 117);">
+            <li class="nav-item">
+                <a class="nav-link" style="background-color:rgb(4, 4, 117); color: white; margin:0 10px;" href="https://localhost:7253/views/cuenta/desaparecidos.html">Desaparecidos</a>
+
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="background-color: rgb(4, 4, 117); color: white; margin:0 10px;" href="https://localhost:7253/views/cuenta/necesitados.html">Necesitados</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="background-color: blue; color: white; margin: 0 10px; border-radius: 8px; " href="https://localhost:7253/views/cuenta/mi_cuenta.html">Mi cuenta</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="background-color: rgb(4, 4, 117); color: white; margin:0 10px;" href="https://localhost:7253/views/cuenta/mis_anuncios.html">Mis anuncios</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" style="background-color: rgb(4, 4, 117); color: white; margin:0 10px;" href="https://localhost:7253/views/cuenta/crear_cuenta.html">Crear cuenta</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- tarjetas -->
+
+    <center>
+        <div class="container col-md-4 col-sm-6">
+
+            <div class="card" style="width: 20rem; margin-top: 25vh; margin: 25% auto; background-color: rgb(7, 33, 69); color: white; ">
+                <div class="card-body" style="display: grid; text-align: center;">
+                    <center>
+                        <div id="contenedor">
+
+                            <h5 class=" nombre card-title" style="margin-bottom: 10px; padding-top: 15px;">Nombre:</h5>
+
+                            <Input id="txtNombre" type="text" style="background-color: rgb(3, 133, 135); font-family: Roboto, sans-serif, Arial; font-weight: bold; text-align: center; color: black;">
+                            <style>
+                                #txtNombre {
+                                    background-color: rgb(3, 133, 135);
+                                    border: none; /* Quitar el borde */
+                                    outline: none; /* Quitar el borde al hacer clic */
+                                }
+                            </style>
+                            <h5 class=" user card-title" style="margin-bottom: 10px; padding-top: 15px;">Usuario:</h5>
+
+                            <Input id="txtUsuario" type="text" style="background-color: rgb(3, 133, 135); font-weight: bold; text-align: center; color: black; ">
+                            <style>
+                                #txtUsuario {
+                                    background-color: rgb(3, 133, 135);
+                                    border: none; /* Quitar el borde */
+                                    outline: none; /* Quitar el borde al hacer clic */
+                                }
+                            </style>
+                            <h5 class=" contraseña card-title" style="margin-bottom: 0px; padding-top: 15px; ">Contraseña:</h5>
+
+                            <Input id="txtContraseña" type="password" style="background-color: rgb(3, 133, 135); font-weight: bold; text-align: center; color:black; ">
+
+                            <i class='bx bx-show-alt' style="color: black; background-color: red; width: 0px; font-size: 30px; transform: translateX(-35px) translateY(9px); cursor: pointer;"></i>
+
+                        </div>
+
+                        <!--<box-icon name='show-alt' ></box-icon> MOSTRAR-->
+                        <!--<box-icon name='low-vision' ></box-icon> NO MOSTRAR-->
+                        <style>
+                            #txtContraseña {
+                                background-color: rgb(3, 133, 135);
+                                border: none; /* Quitar el borde */
+                                outline: none; /* Quitar el borde al hacer clic */
+                            }
+                        </style>
+                    </center>
+                    <br>
+
+                    <div class="container">
+                        <button type="button" id="btnEliminar" class="btn-primary" style="background-color: rgb(4, 111, 212); color: white; justify-items: center; border-style: none; border-radius: 45vh;">   Eliminar   </button>
+
+                        <button type="button" id="btnEditar" class="btn-primary" style="background-color: rgb(4, 111, 212); color: white; justify-items: center; border-style: none; border-radius: 45vh;">   Editar   </button>
+
+                        <button type="button" id="btnGuardar" class="btn-primary" style="background-color: rgb(4, 111, 212); color: white; justify-items: center; border-style: none; border-radius: 45vh;">   Guardar   </button>
+                        <center>
+                            <br>
+                        <button type="button" id="btnCerrarSesion" name="btnCrear_cuenta" class="btn-primary" style="background-color: rgb(4, 111, 212); border-style: none; border-radius: 45vh; color: white; justify-items: center;">   Cerrar sesion </button>
+
+                        </center>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </center>
+
+
+    <script>
+        const nombreAlmacenado = localStorage.getItem('nombre');
+
+        if (nombreAlmacenado == undefined) {
+            body.innerHTML = `
+                    <nav class="navbar justify-content-center" data-bs-theme="White" style="background-color: rgb(4, 4, 117);">
+            <ul class="nav justify-content-center menu-nav" style="background-color: rgb(4, 4, 117);">
+                <li class="nav-item">
+                    <a class="nav-link" style="background-color: blue; color: white; margin: 0 10px; border-radius:8px;" href="https://localhost:7253/views/sin-cuenta/desaparecidos.html">Desaparecidos</a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="background-color: rgb(4, 4, 117); color: white; margin:0 10px;" href="https://localhost:7253/views/sin-cuenta/necesitados.html">Necesitados</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="background-color: rgb(4, 4, 117); color: white; margin:0 10px;" href="https://localhost:7253/views/sin-cuenta/iniciosesion.html">Acceder</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="background-color: rgb(4, 4, 117); color: rgb(125, 138, 158); margin: 0 10px;">Mis anuncios</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" style="background-color: rgb(4, 4, 117); color: white; margin:0 10px;" href="https://localhost:7253/views/sin-cuenta/crear_cuenta.html">Crear cuenta</a>
+                </li>
+                <li class="nav-item">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Buscar desaparecidos" aria-label="Search" id="txtBuscar">
+                        <button class="btn btn-outline-success" type="submit" style="background-color: blue; color: white;" id="btnBuscar">limpiar</button>
+                    </form>
+                </li>
+            </ul>
+         </nav>
+   <center>
+               <h5  style="font-size: 15vh; color:white;">
+                   Crea una cuenta para acceder a este apartado
+               </h5>
+           </center>`;
+        }
+
+        //comenzamos con campos inhabilitados}
+
+        //llamamos al input y al icon
+        const txtContraseña = document.getElementById("txtContraseña")
+        const txtNombre = document.getElementById("txtNombre");
+        const txtUser = document.getElementById("txtUsuario");
+        let icon = document.querySelector(".bx");
+        //inhabilitamos desde el inicio
+        inhabilitar(true);
+        //mostramos datos desde el inicio
+
+        mostrarDatos();
+        //botones
+        const btnEditar = document.getElementById("btnEditar");
+        const btnGuardar = document.getElementById("btnGuardar");
+        const btnEliminar = document.getElementById("btnEliminar");
+        const btnCerrarSesion = document.getElementById("btnCerrarSesion");
+        //Asignacion de eventos
+        btnEditar.addEventListener("click", eventEdit);
+        btnEliminar.addEventListener("click", eliminarCuenta);
+        btnGuardar.addEventListener("click", guardarCuenta);
+        btnCerrarSesion.addEventListener("click", cerrarSesion);
+
+        function cerrarSesion() {
+
+            for (let i = 0; i < localStorage.length; i++) {
+                localStorage.removeItem(localStorage.key(i));
+            }
+            for (let i = 0; i < localStorage.length; i++) {
+                localStorage.removeItem(localStorage.key(i));
+            }
+            if (localStorage.length == 0) {
+                let link = "https://localhost:7253/views/sin-cuenta/iniciosesion.html";
+                window.open(link, '_self');
+            }
+            
+        }
+
+
+        async function eliminarCuenta() {
+            const nombreAlmacenado = localStorage.getItem('nombre');
+
+            alertify.confirm("Esta seguro de elimar su cuenta, esta accion es irreversible",
+                async function () {
+                    let respuesta = await fetch('https://localhost:7253/api/cuentas/' + nombreAlmacenado, {
+                        method: "DELETE",
+                        headers: {
+                            "Content-Type": "application/text"
+                        }
+                    }),
+                        datos = await respuesta.text();
+                    let link = "https://localhost:7253/views/sin-cuenta/iniciosesion.html";
+                    for (let i = 0; i < localStorage.length; i++) {
+                        localStorage.removeItem(localStorage.key(i));
+                    }
+                    window.open(link, '_self');
+                
+                },
+                function () {
+                    alertify.error('Se ha cancelado la eliminacion');
+                });     
+            }
+        async function guardarCuenta() {
+            try {
+
+                var confirmacion;
+                const respuesta = await fetch('https://localhost:7253/api/cuentas', {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }), cuentas = await respuesta.json();
+
+                const nombreAlmacenado = localStorage.getItem('nombre');
+                cuentas.forEach(cuentas => {
+                    if (cuentas.usuario == txtUser.value && cuentas.id_cuenta != parseInt(nombreAlmacenado)) {
+
+                        confirmacion = true;
+                        mostrarDatos();
+
+                    }
+                })
+                
+
+                if (txtContraseña.value == "" || txtUser.value == "" || txtNombre.value == "") {
+                    alert("Ingrese  datos validos");
+                } else if (txtContraseña.value.length <= 3) {
+                    alertify.error("La contraseña debe ser mayor a 3 digitos");
+                } else if (confirmacion == true) {
+                    alertify.error("El usuario ya existe");
+                } else {
+                  
+                    const nombreAlmacenado = localStorage.getItem('nombre');
+                    let datos = {
+                        "id_cuenta": parseInt(nombreAlmacenado),
+                        "nombre": txtNombre.value,
+                        "usuario": txtUser.value,
+                        "contraseña": txtContraseña.value
+                    };
+
+
+                    method = "PUT";
+                    const respuesta = await fetch(`https://localhost:7253/api/cuentas/` + nombreAlmacenado, {
+                        method,
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(datos)
+                    });
+
+                    btnEditar.innerText = "Editar"
+                    alertify.success("Su cuenta ha sido actualizada");
+                    inhabilitar(true);
+                    mostrarDatos();
+                }
+
+  
+            } catch (e) {
+               
+                alertify.error("Error al actualizar la cuenta");
+                mostrarDatos();
+            }
+            
+
+        }
+
+        function eventEdit() {
+
+            let btnEditar = document.getElementById("btnEditar")
+            console.log(btnEditar);
+            if (btnEditar.innerText == "Editar") {
+                btnEditar.innerText = "Cancelar"
+                alertify.success("Edicion habilitada");
+                inhabilitar(false);
+
+            } else {
+                btnEditar.innerText = "Editar"
+                inhabilitar(true);
+                alertify.error("Edicion cancelada");
+                mostrarDatos()
+            }
+        }
+
+
+        function inhabilitar(valor) {
+            let icon = document.querySelector(".bx");
+            const txtContraseña = document.getElementById("txtContraseña");
+            const txtNombre = document.getElementById("txtNombre");
+            const txtUser = document.getElementById("txtUsuario");
+            const btnGuardar = document.getElementById("btnGuardar");
+            const btnEliminar = document.getElementById("btnEliminar");
+              
+            if (valor == true) {
+
+                txtContraseña.disabled = true;
+                txtNombre.disabled = true;
+                txtUser.disabled = true;
+                icon.disabled = true;
+                btnGuardar.disabled = true;
+                btnEliminar.disabled = true;
+              
+                icon.removeEventListener("click", vistaContra)
+            } else {
+                let icon = document.querySelector(".bx");
+                txtContraseña.disabled = false;
+                txtNombre.disabled = false;
+                txtUser.disabled = false;
+                icon.disabled = false;
+                btnGuardar.disabled = false;
+                btnEliminar.disabled = false;
+                icon.addEventListener("click", vistaContra)
+            }
+        }
+
+        async function mostrarDatos() {
+            const nombreAlmacenado = localStorage.getItem('nombre');
+          
+            const respuesta = await fetch(`https://localhost:7253/api/cuentas/` + nombreAlmacenado, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }), cuentas = await respuesta.json();
+         
+            txtNombre.value = cuentas.nombre
+            txtUser.value = cuentas.usuario
+            txtContraseña.value = cuentas.contraseña
+        };
+
+        //cada vez que le demos click al icono...
+
+
+        function vistaContra(e) {
+            if (txtContraseña.type === "password") {
+                txtContraseña.type = "text";
+                icon.classList.remove('bx-show-alt');
+                icon.classList.add('bx-hide');
+            }
+            else {
+                txtContraseña.type = "password"
+                icon.classList.add('bx-show-alt');
+                icon.classList.remove('bx-hide');
+            }
+        }
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
+</body>
+</html>
+

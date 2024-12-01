@@ -1,0 +1,8 @@
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/Academica/Academica/obj/Release
+/miPrimerProyecto
+/notas/notas/obj/Release
+/Proyecto_final/Red Esperanza/.vs/Web Red de Esperanza/FileContentIndex/63ad6b9b-694e-48e2-871e-106de53a35ab.vsidx
